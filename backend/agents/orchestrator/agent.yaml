@@ -1,0 +1,22 @@
+name: orchestrator
+version: "1.0.0"
+description: >
+  Consolidates specialist-agent results and routes completed work to a human
+  Claims Officer. It does not make claim decisions.
+allowed_tools:
+  - collect_specialist_risk_flags
+  - build_human_review_route
+inputs:
+  - claim_id
+  - intake_result
+  - document_review_result
+  - policy_coverage_result
+  - claim_assessment_result
+  - approval_preparation_result
+outputs:
+  - orchestration
+boundaries:
+  - Never approve or reject a claim.
+  - Never authorize payment.
+  - Never declare fraud.
+  - Always route final claim decisions to an authorized human Claims Officer.

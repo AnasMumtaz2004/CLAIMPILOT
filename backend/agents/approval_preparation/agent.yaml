@@ -1,0 +1,39 @@
+name: approval_preparation
+version: 1.0.0
+description: 'Prepares a structured claim approval package for a human claims officer.
+  Checks approval requirements, documents, specialist findings and calculation availability.
+  Does not make approval or rejection decisions.
+
+  '
+model:
+  provider: gemini
+  setting: gemini_strong_model
+  temperature: 0
+allowed_tools:
+- get_claim_details
+- get_claim_documents
+- search_approval_requirements
+- check_claim_completeness
+- build_human_review_checklist
+inputs:
+- claim_id
+- intake_result
+- document_review_result
+- policy_coverage_result
+- claim_assessment_result
+outputs:
+- preparation_status
+- preparation_summary
+- requirements
+- outstanding_items
+- risk_flags
+- human_review_points
+- approval_package
+boundaries:
+- Never approve or reject a claim.
+- Never authorize payment.
+- Only use retrieved approval requirements as guideline evidence.
+- Do not treat an LLM response as proof that a requirement is satisfied.
+- Do not invent missing documents or claim facts.
+- Do not override specialist agent findings.
+- All final decisions belong to an authorized human officer.

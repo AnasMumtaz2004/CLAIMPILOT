@@ -1,0 +1,1 @@
+"""ClaimPilot MCP integration package."""

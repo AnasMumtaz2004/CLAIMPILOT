@@ -1,0 +1,11 @@
+/* Change the palette here only. */
+
+@theme {
+  --color-primary: #D6D3D1;
+  --color-secondary: #0A0A0A;
+  --color-accent: #FFFFFF;
+  
+  --font-display: "Archivo Black", sans-serif;
+  --font-body: "Poppins", sans-serif;
+  --font-mono: "Roboto Mono", monospace;
+}
